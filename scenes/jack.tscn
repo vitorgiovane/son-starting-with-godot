@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/character.gd" type="Script" id=1]
+[ext_resource path="res://components/jack/Idle (4).png" type="Texture" id=2]
+[ext_resource path="res://components/Tiles/13.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+custom_solver_bias = 0.337
+extents = Vector2( 187.286, 324.737 )
+
+[node name="Game" type="Node2D"]
+
+[node name="character" type="RigidBody2D" parent="."]
+position = Vector2( 315.335, 192.561 )
+mode = 2
+mass = 13.31
+gravity_scale = 3.64
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character"]
+position = Vector2( -3.98163, 1.70642 )
+scale = Vector2( 0.242142, 0.242142 )
+shape = SubResource( 1 )
+
+[node name="Idle (4)" type="Sprite" parent="character/CollisionShape2D"]
+position = Vector2( -13.9914, -28.0119 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 304.344, 502.923 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -3.42899, 11.7661 )
+polygon = PoolVector2Array( 61.9426, -46.742, 62.187, 46.2105, 42.1588, 46.2105, 29.0851, 43.4463, 21.714, 40.7306, 16.622, 38.3544, 9.83601, 34.6451, 1.88078, 30.6675, -4.81835, 26.5852, -10.9941, 21.8749, -14.1343, 16.1178, -16.0185, 13.0823, -17.287, 10.8156, -18.7449, 8.79078, -21.2558, 7.81884, -22.8757, 7.41386, -31.708, 6.8469, -38.5115, 5.71297, -46.125, 4.82203, -52.7666, 1.50125, -55.1154, -1.33356, -58.6359, -6.303, -60.4178, -10.2717, -61.3897, -13.7545, -61.2277, -16.5893, -63.1716, -17.6423, -65.6014, -19.0192, -65.9254, -20.2341, -65.9254, -22.259, -65.9254, -30.7609, -65.6824, -36.5925, -64.3055, -40.1563, -62.5236, -43.963, -60.3368, -46.3119, -59.6078, -46.8789 )
+
+[node name="13" type="Sprite" parent="StaticBody2D/CollisionPolygon2D2"]
+position = Vector2( -1.88944, -0.283785 )
+texture = ExtResource( 3 )
